@@ -8,7 +8,7 @@ const LawyerProfile = ({ lawyer, istrusted }) => {
   console.log("lawyer", lawyer);
   const navigate = useNavigate();
   const handleClick = (id) => {
-    navigate(`lawyer-details/${1}`, { state: { lawyer: currLawyer } });
+    navigate(`/lawyer-details/${1}`, { state: { lawyer: currLawyer } });
   };
 
   //   useEffect(() => {

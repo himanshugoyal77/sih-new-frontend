@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Searchbar from "../components/Searchbar";
 import { Carousel, Collapse, Steps } from "antd";
@@ -13,13 +13,13 @@ import financialHelpIcon from "../assets/money-growth.png";
 import Footer from "../components/Footer";
 
 const types_of_lawyers = [
-  { name: "Criminal Defense ", id: 1, img: "./home/criminal-def.png" },
-  { name: "Civil Litigation ", id: 2, img: "./home/civil.png" },
-  { name: "Family", id: 3, img: "./home/family.png" },
-  { name: "Real Estate ", id: 4, img: "./home/realestate.png" },
-  { name: "Intellectual Property ", id: 6, img: "./home/bag.png" },
-  { name: "Bankruptcy ", id: 7, img: "./home/criminal-def.png" },
-  { name: "Corporate ", id: 5, img: "./home/iproperty.png" },
+  { name: "Family matter", id: 1, img: "./home/criminal-def.png" },
+  { name: "Child Custody ", id: 2, img: "./home/civil.png" },
+  { name: "Buying property", id: 3, img: "./home/family.png" },
+  { name: "Check Bounce ", id: 4, img: "./home/realestate.png" },
+  { name: "Starting Buisness ", id: 6, img: "./home/bag.png" },
+  { name: "Notery ", id: 7, img: "./home/criminal-def.png" },
+  { name: "Will Drafting ", id: 5, img: "./home/iproperty.png" },
 ];
 
 const text = `
@@ -55,13 +55,25 @@ const contentStyle = {
 };
 
 const HomePage = () => {
-  const scrollRef = useRef(null);
+  const [scroll, setScroll] = useState(false);
 
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 380) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  });
   return (
     <div className="relative bg-slate-50">
       {" "}
       <div className="nav-wrapper bg-img h-[75%] w-full"></div>
-      <div className="md:w-[80%] mx-auto fixed z-10 top-5 left-0 right-0">
+      <div
+        className={
+          "md:w-[80%] mx-auto fixed z-10 left-0 right-0 bg-transparent" +
+          (scroll ? " top-0" : " top-5")
+        }
+      >
         <Navbar />
       </div>
       <Searchbar />
@@ -83,7 +95,7 @@ const HomePage = () => {
           ))}
         </div>
       </div>
-      <div className="h-32 bg-slate-50" ref={scrollRef}></div>
+      <div className="h-32 bg-slate-50"></div>
       <div className="h-screen text-center bg-slate-50 md:w-[80%] mx-auto">
         <div className="mt-24 bg-white shadow shadow-slate-300 pt-12">
           <h1 className="text-xl font-bold ">Find Lawyer in 5 easy steps</h1>
