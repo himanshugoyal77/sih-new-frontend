@@ -23,8 +23,10 @@ const SearchPage = () => {
 
   return (
     <div className="relative w-[80%] mx-auto ">
-      <Navbar isChangeColor="true" />
-      <hr />
+      <div className="md:sticky left-0 top-0 z-[89]">
+        <Navbar isChangeColor="true" />
+      </div>
+
       <div className="content w-full mx-auto text-center relative">
         {/* sidebar */}
         <div className="flex">

@@ -2,7 +2,7 @@ import React from "react";
 
 const ClinicCard = ({ address }) => {
   return (
-    <div className="shadow shadow-slate-300 p-4 w-[100%] mb-2">
+    <div className="p-2 w-[100%] mb-2 bg-white">
       <h1 className="text-md font-bold text-gray-500">
         {address ? address : "Apollo Hospital, Sector 32, Delhi NCR - 122001"}
       </h1>

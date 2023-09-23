@@ -2,7 +2,7 @@ import React from "react";
 
 const Buttons = ({ text }) => {
   return (
-    <button className="flex gap-2 items-center w-24  h-10 bg-gray-100 text-emerald-800 font-bold text-sm px-4 py-2 rounded-full shadow-md ">
+    <button className="flex gap-2 items-center cursor-pointer  h-10 bg-gray-100 text-emerald-800 font-bold text-sm px-4 py-2 rounded-md shadow-sm ">
       {text === "Follow" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"

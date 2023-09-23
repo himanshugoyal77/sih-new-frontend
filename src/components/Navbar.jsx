@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Badge, Popover } from "antd";
 import notifications from "../assets/notifications.svg";
 import LogoComponent from "./LogoComponent";
+import { useNavigate } from "react-router-dom";
 
 const handleClick = () => {
   alert("clicked");
@@ -54,6 +55,7 @@ const content = (
 );
 
 const Navbar = ({ isChangeColor }) => {
+  const navigate = useNavigate();
   const cls =
     "bg-red-500 text-white px-4 py-2 rounded-md shadow-md bg-black text-black text-white hidden";
   const [colorChange, setColorchange] = useState(isChangeColor || false);
@@ -68,7 +70,12 @@ const Navbar = ({ isChangeColor }) => {
     window.addEventListener("scroll", changeNavbarColor);
   }
   return (
-    <div className=" w-full  text-white px-4 py-2 flex items-center justify-between">
+    <div
+      className={
+        "w-fulltext-white px-4 py-2 flex items-center justify-between " +
+        (colorChange ? "bg-white border rounded-md" : "")
+      }
+    >
       <LogoComponent colorChange={colorChange} />
       <div className="wrapper flex items-center justify-around gap-8">
         <span
@@ -85,7 +92,7 @@ const Navbar = ({ isChangeColor }) => {
           strokeWidth={1.5}
           stroke="currentColor"
           {...(colorChange ? { fill: "none" } : { fill: "none" })}
-          className={colorChange ? "w-6 h-6 text-black" : " w-6 h-6"}
+          className={colorChange ? "w-6 h-6 text-black mt-1" : " w-6 h-6 mt-1"}
         >
           <path
             strokeLinecap="round"
@@ -103,13 +110,15 @@ const Navbar = ({ isChangeColor }) => {
             outline: "none",
             boxShadow: "0 0 0 1px #F87171 inset ",
             cursor: "pointer",
+            marginTop: "4px",
           }}
         >
           <img
+            onClick={() => navigate("/notification")}
             src={notifications}
             alt="notifications"
             className={
-              "cursor-pointer" + (colorChange ? " filter invert " : "")
+              "cursor-pointer mt-1" + (colorChange ? " filter invert " : "")
             }
           />
         </Badge>

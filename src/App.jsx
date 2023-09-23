@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import Register from "./pages/Register";
 import SearchPage from "./pages/SearchPage";
 import SingleLawyer from "./pages/LawyerDetails";
+import NotificationPage from "./pages/NotificationPage";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "search/lawyer-details/:id",
     element: <SingleLawyer />,
+  },
+  {
+    path: "notification",
+    element: <NotificationPage />,
   },
   {
     path: "*",

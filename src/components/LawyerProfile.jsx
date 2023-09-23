@@ -25,8 +25,8 @@ const LawyerProfile = ({ lawyer, istrusted }) => {
 
   return (
     <div
-      className="flex flex-col items-start w-[200px]
-      rounded-s-sm p-2 shadow-md relative
+      className="bg-white flex flex-col items-start w-[200px]
+      rounded-s-sm p-2 shadow-md relative cursor-pointer
     hover:shadow-xl hover:scale-105 duration-700 ease-in-out
     "
     >
