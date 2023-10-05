@@ -11,6 +11,7 @@ import {
 import TopRated from "../components/TopRated";
 import financialHelpIcon from "../assets/money-growth.png";
 import Footer from "../components/Footer";
+import ArrowUp from "../icon-helpers/ArrowUp";
 
 const types_of_lawyers = [
   { name: "Family matter", id: 1, img: "./home/criminal-def.png" },
@@ -57,25 +58,22 @@ const contentStyle = {
 const HomePage = () => {
   const [scroll, setScroll] = useState(false);
 
+  const moveToBtn = document.querySelector(".moveTo");
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 380) {
+    if (window.scrollY > 400) {
+      moveToBtn.scrollIntoView({ behavior: "smooth" });
+      moveToBtn.style.display = "flex";
       setScroll(true);
     } else {
+      moveToBtn.style.display = "none";
       setScroll(false);
     }
   });
   return (
-    <div className="relative bg-slate-50">
+    <div className="relative bg-white">
       {" "}
       <div className="nav-wrapper bg-img h-[75%] w-full"></div>
-      <div
-        className={
-          "md:w-[80%] mx-auto fixed z-10 left-0 right-0 bg-transparent" +
-          (scroll ? " top-0" : " top-5")
-        }
-      >
-        <Navbar />
-      </div>
+      <Navbar />
       <Searchbar />
       <div className="md:w-[66%] mx-auto absolute top-[400px] left-0 right-0">
         <div
@@ -95,8 +93,8 @@ const HomePage = () => {
           ))}
         </div>
       </div>
-      <div className="h-32 bg-slate-50"></div>
-      <div className="h-screen text-center bg-slate-50 md:w-[80%] mx-auto">
+      <div className="h-32 bg-white"></div>
+      <div className="h-screen text-center bg-white md:w-[80%] mx-auto">
         <div className="mt-24 bg-white shadow shadow-slate-300 pt-12">
           <h1 className="text-xl font-bold ">Find Lawyer in 5 easy steps</h1>
           <Steps
@@ -130,27 +128,16 @@ const HomePage = () => {
             ]}
           />
         </div>
-        <div className="mt-16">
+        <div className="mt-16 bg-white">
           <h1 className="text-2xl font-bold ">
             Consult with top rated Lawyers
           </h1>
-          <Carousel
-            autoplay
-            arrows={true}
-            speed={1000}
-            className="mt-8 shadow shadow-slate-200"
-          >
-            <div>
-              <TopRated />
-            </div>
-            <div>
-              <TopRated />
-            </div>
-            <div>
-              <TopRated />
-            </div>
-          </Carousel>
+
+          <div className="mt-8 shadow shadow-slate-200">
+            <TopRated />
+          </div>
           <button
+            onClick={() => (window.location.href = "/search")}
             className="
           flex gap-2 bg-black text-white px-6 py-2 rounded-full shadow-md
           hover:scale-105 transform transition-all duration-500 ease-in-out
@@ -175,7 +162,7 @@ const HomePage = () => {
           </button>
         </div>
         <hr className="mt-12" />
-        <div className="flex flex-col items-center gap-4 px-5 md:flex-row my-16  w-max mx-auto">
+        <div className="bg-white flex flex-col items-center gap-4 px-5 md:flex-row my-16  w-max mx-auto">
           <img
             className="h-80 w-80 object-cover"
             src={financialHelpIcon}
@@ -210,8 +197,10 @@ const HomePage = () => {
             defaultActiveKey={["1"]}
           />
         </div> */}
-
         <Footer />
+      </div>
+      <div className="moveTo bg-[#36454F] text-white h-12 w-12 rounded-full fixed z-50 bottom-10 right-10 flex items-center justify-center shadow-md">
+        <ArrowUp />
       </div>
     </div>
   );

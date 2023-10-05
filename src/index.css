@@ -5,10 +5,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap");
 
 #otp {
-  background: url("https://png.pngtree.com/background/20220731/original/pngtree-law-banner-wallpaper-design-with-book-of-hammer-justice-scale-vector-picture-image_1912373.jpg");
-  opacity: 0.9;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #b6b6b4;
+}
+
+.bg {
+  background-color: #b6b6b4;
 }
 
 .ant-spin-dot-item {
@@ -24,10 +25,11 @@
 }
 
 body {
-  @apply bg-slate-50;
+  @apply bg-white;
   font-family: "Roboto", sans-serif;
   scrollbar-width: thin;
   scrollbar-color: #4d7fff #ddd;
+  /* background: #36454f; */
 }
 
 hr {

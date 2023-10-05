@@ -1,69 +1,98 @@
-import { useNavigate } from "react-router-dom";
+import { Carousel } from "antd";
+import TopLawyerCard from "./TopLawyerCard";
 
-const TopRated = ({ lawyer }) => {
-  console.log("lawyer from0", lawyer);
-  const navigate = useNavigate();
+const Lawyers = [
+  {
+    id: 0,
+    img: "https://img.freepik.com/premium-photo/indian-young-female-entrepreneur_437792-374.jpg",
+    name: "Jessica Anderson",
+    rating: 4.8,
+    specialization: "Criminal Defense",
+    contact: {
+      email: "jessica.anderson@example.com",
+      phone: "+1 (555) 123-4567",
+    },
+    office: {
+      address: "123 Main Street, Suite 567, Anytown, USA",
+    },
+    experience: {
+      years_practiced: 12,
+      law_firm: "Anderson & Associates",
+    },
+    education: {
+      law_school: "Anytown Law School",
+      degree: "Juris Doctor (JD)",
+    },
+    licenses: {
+      state: "California, USA",
+      bar_number: "123456",
+    },
+  },
+  {
+    id: 1,
+    img: "https://st.adda247.com/https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2020/01/11073647/JM5_5413.2e16d0ba.fill-600x440-1.jpg",
+    name: "Michael Johnson",
+    rating: 4.5,
+    specialization: "Family Law",
+    contact: {
+      email: "michael.johnson@example.com",
+      phone: "+1 (555) 987-6543",
+    },
+    office: {
+      address: "456 Oak Street, Suite 789, Smalltown, USA",
+    },
+    experience: {
+      years_practiced: 10,
+      law_firm: "Johnson Law Firm",
+    },
+    education: {
+      law_school: "Smalltown Law School",
+      degree: "Juris Doctor (JD)",
+    },
+    licenses: {
+      state: "New York, USA",
+      bar_number: "789012",
+    },
+  },
+  {
+    id: 2,
+    img: "https://im.rediff.com/news/2016/nov/04un.jpg?w=670&h=900",
+    name: "Emily Smith",
+    rating: 4.9,
+    specialization: "Real Estate Law",
+    contact: {
+      email: "emily.smith@example.com",
+      phone: "+1 (555) 234-5678",
+    },
+    office: {
+      address: "789 Elm Street, Suite 123, Cityville, USA",
+    },
+    experience: {
+      years_practiced: 8,
+      law_firm: "Smith & Associates",
+    },
+    education: {
+      law_school: "Cityville Law School",
+      degree: "Juris Doctor (JD)",
+    },
+    licenses: {
+      state: "Texas, USA",
+      bar_number: "567890",
+    },
+  },
+];
+
+const TopRated = () => {
+  const onChange = (currentSlide) => {
+    console.log(currentSlide);
+  };
+
   return (
-    <section className="flex border bg-white  py-16">
-      <div className="w-[70%] flex flex-col items-center">
-        <div className="flex items-center justify-center gap-12 w-full">
-          <div className="flex justify-between items-center ">
-            <div className="leftContainer text-center scale-125">
-              <p className="text-yellow-300 text-8xl font-bold">{"4.8"}</p>
-              <span className="text-xs text-gray-800 font-bold">
-                out of 5
-                <p className="text-sm font-medium text-black dark:text-gray-400">
-                  1,745 global ratings
-                </p>
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2 my-4 p-2 w-[40%]">
-            <div className="rounded-full bg-black px-4 py-2 font-light text-sm text-white text-center">
-              General
-            </div>
-            <div className="rounded-full bg-black px-4 py-2 font-light text-sm text-white text-center">
-              Family
-            </div>
-            <div className="rounded-full bg-black px-4 py-2 font-light text-sm text-white text-center">
-              Real Estate
-            </div>
-            <div className="rounded-full bg-black px-4 py-2 font-light text-sm text-white text-center">
-              Consumer Law
-            </div>
-            <div className="rounded-full bg-black px-4 py-2 font-light text-sm text-white text-center">
-              Document
-            </div>
-          </div>
-        </div>
-        <p className=" w-[60%] h-[100px] overflow-hidden text-sm text-black mt-8">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          iste cumque totam saepe facilis. Dolor, corporis pariatur debitis
-          asperiores saepe obcaecati sint aliquid, laudantium dolorem possimus
-          architecto alias nihil? Eum.
-        </p>
-        <button
-          className="w-[60%] text-white mt-8 bg-blue-300 py-3 px-4 rounded-md font-bold 
-          text-sm shadow-sm mb-4 
-          hover:scale-105 hover:bg-black transform transition-all duration-500 ease-in-out
-          "
-        >
-          Book an Appointment
-        </button>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <img
-          className="h-64 w-64 rounded-full object-cover  border-4 border-black shadow-md"
-          src={"https://i.pravatar.cc/300?img=2"}
-          alt=""
-        />
-        <div className="font-bold text-xl mt-4">{"Himanshu Goyal"}</div>
-        <div className="font-bold text-sm text-gray-500">
-          📍 {"Bandra"}, {"Maharashtra"}
-        </div>
-      </div>
-    </section>
+    <Carousel autoplay arrows={true} dots={false} pauseOnFocus={true}>
+      <TopLawyerCard lawyer={Lawyers[0]} />
+      <TopLawyerCard lawyer={Lawyers[1]} />
+      <TopLawyerCard lawyer={Lawyers[2]} />
+    </Carousel>
   );
 };
 

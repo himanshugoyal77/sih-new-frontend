@@ -9,7 +9,7 @@ const LogoComponent = ({ colorChange }) => {
       <h1
         className={
           colorChange
-            ? "text-black text-xl font-bold"
+            ? "text-white text-xl font-bold"
             : "text-white text-xl font-bold"
         }
       >

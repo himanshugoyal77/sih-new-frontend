@@ -34,7 +34,7 @@ const Pages = [
 const NotificationPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[90%] mx-auto">
       <Navbar isChangeColor="true" />
       <div className="flex mt-5">
         <aside className=" px-2 py-6 w-[20%] h-1/2 bg-white shadow-md border rounded-md ">

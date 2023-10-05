@@ -16,10 +16,11 @@ import Dashboard from "./pages/lawyerPages/Dashboard";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
 import DashboardLayout from "./pages/lawyerPages/DashboardLayout";
+import Footer from "./components/Footer";
 
 const LawyerLayout = () => {
   return (
-    <div className="w-[90%] md:w-[80%] mx-auto">
+    <div className="w-[90%] md:w-[100%] mx-auto">
       <div className="sticky top-0">
         <Navbar isChangeColor="true" />
       </div>
@@ -30,12 +31,11 @@ const LawyerLayout = () => {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/home",
     element: <HomePage />,
-    children: [],
   },
   {
-    path: "/verify",
+    path: "/",
     element: <Otp />,
   },
   {

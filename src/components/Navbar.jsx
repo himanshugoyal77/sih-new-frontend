@@ -72,18 +72,19 @@ const Navbar = ({ isChangeColor }) => {
   if (!isChangeColor) {
     window.addEventListener("scroll", changeNavbarColor);
   }
+
   return (
     <div
       className={
-        "w-fulltext-white px-4 py-2 flex items-center justify-between " +
-        (colorChange ? "bg-white border rounded-md" : "")
+        "text-white px-14 py-2 flex items-center justify-between absolute top-0 left-0 right-0 " +
+        (colorChange ? " bg-[#36454F] " : "")
       }
     >
       <LogoComponent colorChange={colorChange} />
       <div className="wrapper flex items-center justify-around gap-8">
         <span
           className={
-            "underline cursor-pointer" + (colorChange ? " filter invert " : "")
+            "underline cursor-pointer" + (colorChange ? "  text-white" : "")
           }
         >
           emergency
@@ -95,7 +96,7 @@ const Navbar = ({ isChangeColor }) => {
           strokeWidth={1.5}
           stroke="currentColor"
           {...(colorChange ? { fill: "none" } : { fill: "none" })}
-          className={colorChange ? "w-6 h-6 text-black mt-1" : " w-6 h-6 mt-1"}
+          className={colorChange ? "w-6 h-6 text-white mt-1" : " w-6 h-6 mt-1"}
         >
           <path
             strokeLinecap="round"
@@ -121,7 +122,7 @@ const Navbar = ({ isChangeColor }) => {
             src={notifications}
             alt="notifications"
             className={
-              "cursor-pointer mt-1" + (colorChange ? " filter invert " : "")
+              "cursor-pointer mt-1" + (colorChange ? " text-white " : "")
             }
           />
         </Badge>

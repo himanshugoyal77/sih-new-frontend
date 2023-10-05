@@ -15,6 +15,10 @@ import { useDispatch } from "react-redux";
 import { setUserDetails } from "../context/userSlice";
 import { Spin } from "antd";
 
+import Lottie from "lottie-react";
+import otpAnimation from "../assets/lottie/animation_lncv0j49.json";
+import verifyAnimation from "../assets/lottie/animation_lncv2x5z.json";
+
 const Otp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -112,7 +116,11 @@ const Otp = () => {
   }
 
   return (
-    <section id="otp" className="flex items-center justify-center h-screen">
+    <section
+      id="otp"
+      className="flex items-center justify-center gap-10 h-screen"
+    >
+      {!user && <Lottie animationData={otpAnimation} loop={true} />}
       <div className="">
         <Toaster toastOptions={{ duration: 4000 }} />
         {showOTP ? (
@@ -121,16 +129,7 @@ const Otp = () => {
           <div className="ml-12 mb-4" id="recaptcha-container"></div>
         )}
         {user ? (
-          <Spin
-            className=""
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100vh",
-              width: "100vw",
-            }}
-          />
+          <Lottie animationData={verifyAnimation} loop={true} />
         ) : (
           <div className="bg-white w-96 flex flex-col gap-4 border rounded-lg py-14 px-10 shadow-md">
             <h1 className="text-center leading-normal font-thin text-2xl mb-6">
